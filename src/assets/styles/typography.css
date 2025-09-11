@@ -1,0 +1,53 @@
+/* #region mobile */
+h1 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.2;
+  color: var(--white);
+}
+
+/* h2 {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--black);
+} */
+
+h3 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+/* p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--black);
+} */
+
+button {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--white);
+}
+
+:is(input, textarea) {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+a {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+/* #endregion */
+/* #region tablet */
+
+/* #endregion */

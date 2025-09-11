@@ -1,0 +1,90 @@
+:root {
+  background-color: var(--background-color);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+body.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+input,
+textarea {
+  border-radius: 12px;
+  padding: 12px;
+  background-color: var(--inputs);
+}
+
+input {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  outline: none;
+}
+
+button {
+  border-radius: 12px;
+  padding: 12px;
+}
+
+textarea {
+  resize: none;
+}
+
+.blue-btn {
+  background-color: var(--button);
+  transition: background-color 300ms ease-in;
+}
+
+.blue-btn:is(:hover, :focus) {
+  background-color: var(--button-hover);
+}
+
+.border-btn {
+  border: 1px solid var(--button);
+  transition: border-color 300ms ease-in;
+}
+
+.border-btn:is(:hover, :focus, :active) {
+  border-color: var(--button-hover);
+}
