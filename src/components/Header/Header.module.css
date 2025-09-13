@@ -1,0 +1,20 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerLogo {
+  padding: 26px 0;
+}
+.headerNavList {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+.headerNavLink {
+  padding: 26px 0;
+}
+
+.headerNavLink.isActive {
+  color: var(--button-hover);
+}

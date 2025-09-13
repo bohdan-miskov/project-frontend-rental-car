@@ -62,16 +62,13 @@ input {
   outline: none;
 }
 
-button {
-  border-radius: 12px;
-  padding: 12px;
-}
-
 textarea {
   resize: none;
 }
 
 .blue-btn {
+  border-radius: 12px;
+  padding: 12px;
   background-color: var(--button);
   transition: background-color 300ms ease-in;
 }
@@ -81,6 +78,8 @@ textarea {
 }
 
 .border-btn {
+  border-radius: 12px;
+  padding: 12px;
   border: 1px solid var(--button);
   transition: border-color 300ms ease-in;
 }

@@ -12,7 +12,7 @@ import {
 
 type InitialState = {
   items: Car[];
-  favorites: Set<string>;
+  favorites: string[];
   totalItems: number;
   totalPages: number;
   page: number;
@@ -22,7 +22,7 @@ type InitialState = {
 
 const initialState: InitialState = {
   items: [],
-  favorites: new Set<string>(),
+  favorites: [],
   totalItems: 0,
   totalPages: 1,
   page: 1,
@@ -35,12 +35,14 @@ const carsSlice = createSlice({
   initialState,
   reducers: {
     addToFavorites(state, action) {
-      state.favorites.add(action.payload);
+      if (state.favorites.includes(action.payload)) {
+        return;
+      }
+
+      state.favorites.push(action.payload);
     },
     removeFromFavorites(state, action) {
-      state.favorites = new Set(
-        [...state.favorites].filter(id => id != action.payload)
-      );
+      state.favorites = state.favorites.filter(id => id != action.payload);
     },
   },
   extraReducers: builder => {

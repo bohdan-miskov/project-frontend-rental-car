@@ -1,3 +1,5 @@
+import Hero from '../../components/Hero/Hero';
+
 export default function MainPage() {
-  return null;
+  return <Hero />;
 }

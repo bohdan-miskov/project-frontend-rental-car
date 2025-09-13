@@ -1,10 +1,13 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import Layout from '../components/Layout/Layout';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import MainPage from '../pages/MainPage/MainPage';
-import CatalogPage from '../pages/CatalogPage/CatalogPage';
-import CarDetailsPage from '../pages/CarDetailsPage/CarDetailsPage';
 import { Toaster } from 'react-hot-toast';
+
+const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
+const CatalogPage = lazy(() => import('../pages/CatalogPage/CatalogPage'));
+const CarDetailsPage = lazy(
+  () => import('../pages/CarDetailsPage/CarDetailsPage')
+);
 
 function App() {
   return (
