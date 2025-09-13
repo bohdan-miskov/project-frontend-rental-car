@@ -1,0 +1,53 @@
+.card {
+  position: relative;
+}
+.cardFavBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.cardFavIcon {
+  stroke: var(--badges);
+}
+.isFavorite .cardFavIcon {
+  fill: var(--button);
+}
+.cardImage {
+  border-radius: 14px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+.cardTopContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.cardTitle {
+}
+.cardTitleAccent {
+  color: var(--button);
+}
+.cardPrice {
+}
+.cardInfoList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cardInfoItem {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--gray);
+}
+.cardInfoItem::after {
+  content: '|';
+  margin-left: 6px;
+}
+.cardDetailsLink {
+  display: inline-block;
+  color: var(--white);
+  width: 100%;
+}

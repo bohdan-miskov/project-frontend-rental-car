@@ -7,3 +7,4 @@ export const selectFiltersMinMileage = (state: RootState) =>
   state.filters.minMileage;
 export const selectFiltersMaxMileage = (state: RootState) =>
   state.filters.maxMileage;
+export const selectFiltersPage = (state: RootState) => state.filters.page;

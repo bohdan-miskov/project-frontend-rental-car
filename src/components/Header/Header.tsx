@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 export default function Header() {
   return (
-    <section>
+    <section className={css.headerSection}>
       <div className={`${css.headerContainer} container`}>
         <Link to="/" className={css.headerLogo}>
           <img src={logo} width={104} height={16} alt="logo" />
