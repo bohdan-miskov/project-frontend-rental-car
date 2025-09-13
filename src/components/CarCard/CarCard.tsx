@@ -21,23 +21,26 @@ export default function CarCard({
 }: Car) {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
-  const addressArray = address.split(',');
+  const addressArray = address.split(', ');
   const mileageDisplay = mileage
     .toString()
-    .match(/.{1,3}/g)
-    ?.join(' ');
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+
+  const isFavorite = favorites?.includes(id);
 
   const handleAddToFavorites = () => {
     dispatch(addToFavorites(id));
   };
 
   return (
-    <div
-      className={clsx(styles.card, favorites.includes(id) && styles.isFavorite)}
-    >
+    <div className={clsx(styles.card, isFavorite && styles.isFavorite)}>
       <button className={styles.cardFavBtn} onClick={handleAddToFavorites}>
         <svg className={styles.cardFavIcon} width={16} height={16}>
-          <use href={'/icons.svg#icon-heart'} />
+          <use
+            href={`/icons.svg#icon-heart-${
+              isFavorite ? 'filled' : 'transparent'
+            }`}
+          />
         </svg>
       </button>
       <img
@@ -47,21 +50,23 @@ export default function CarCard({
         width={276}
         height={268}
       />
-      <div>
-        <div className={styles.cardTopContent}>
-          <h3 className={styles.cardTitle}>{`${brand} ${(
-            <span className={styles.cardTitleAccent}>{model}</span>
-          )}, ${year}`}</h3>
-          <p className={styles.cardPrice}>{`$${rentalPrice}`}</p>
-        </div>
-        <ul className={styles.cardInfoList}>
-          <li className={styles.cardInfoItem}>{addressArray[1]}</li>
-          <li className={styles.cardInfoItem}>{addressArray[2]}</li>
-          <li className={styles.cardInfoItem}>{rentalCompany}</li>
-          <li className={styles.cardInfoItem}>{type}</li>
-          <li className={styles.cardInfoItem}>{`${mileageDisplay} km`}</li>
-        </ul>
+
+      <div className={styles.cardTopContent}>
+        <h3 className={styles.cardTitle}>
+          {brand} <span className={styles.cardTitleAccent}>{model}</span>,{' '}
+          {year}
+        </h3>
+
+        <p className={styles.cardPrice}>{`$${rentalPrice}`}</p>
       </div>
+      <ul className={styles.cardInfoList}>
+        <li className={styles.cardInfoItem}>{addressArray[1]}</li>
+        <li className={styles.cardInfoItem}>{addressArray[2]}</li>
+        <li className={styles.cardInfoItem}>{rentalCompany}</li>
+        <li className={styles.cardInfoItem}>{type}</li>
+        <li className={styles.cardInfoItem}>{`${mileageDisplay} km`}</li>
+      </ul>
+
       <Link
         className={clsx(styles.cardDetailsLink, 'blue-btn')}
         to={`/catalog/${id}`}

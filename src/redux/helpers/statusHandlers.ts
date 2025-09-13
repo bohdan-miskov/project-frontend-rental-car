@@ -41,10 +41,15 @@ export const setListData = (
   state: PaginationArrayState<Car>,
   action: AppAction<CarsResponse>
 ) => {
-  state.items = action.payload.cars;
+  const page = action.payload.page;
+  if (page > 1) {
+    state.items = [...state.items, ...action.payload.cars];
+  } else {
+    state.items = action.payload.cars;
+  }
   state.totalItems = action.payload.totalCars;
   state.totalPages = action.payload.totalPages;
-  state.page = action.payload.page;
+  state.page = page;
 };
 
 export const setListRejected = (

@@ -5,6 +5,7 @@
 .carsList {
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
   row-gap: 48px;
   column-gap: 32px;
 }

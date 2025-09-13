@@ -48,7 +48,8 @@ main {
 }
 
 input,
-textarea {
+textarea,
+select {
   border-radius: 12px;
   padding: 12px;
   background-color: var(--inputs);
@@ -80,6 +81,8 @@ textarea {
 .border-btn {
   border-radius: 12px;
   padding: 12px;
+  background-color: transparent;
+  color: var(--main);
   border: 1px solid var(--button);
   transition: border-color 300ms ease-in;
 }

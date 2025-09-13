@@ -1,0 +1,57 @@
+.filtersSection {
+  padding-top: 84px;
+  padding-bottom: 28px;
+}
+.form {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.formComponent {
+}
+.formLabel {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+.formSelect div[data-value] {
+  margin: 0;
+}
+.formSelectBrand {
+  width: 204px;
+}
+.formSelectPrice {
+  width: 196px;
+}
+.formRangeContainer {
+  display: flex;
+}
+.formInputContainer {
+  position: relative;
+}
+.formInputHint {
+  position: absolute;
+  top: 12px;
+  left: 24px;
+}
+.formRangeInput {
+  width: 160px;
+  padding: 12px 24px;
+}
+
+.formRangeContainer > div:nth-child(1) .formRangeInput {
+  border-right: 1px solid var(--gray-light);
+  border-radius: 12px 0 0 12px;
+  padding-left: 71px;
+}
+.formRangeContainer > div:nth-child(2) .formRangeInput {
+  border-radius: 0 12px 12px 0;
+  padding-left: 51px;
+}
+
+.fromBtn {
+  width: 156px;
+  align-self: flex-end;
+}

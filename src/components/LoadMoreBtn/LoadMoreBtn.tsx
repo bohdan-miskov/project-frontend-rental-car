@@ -1,13 +1,15 @@
 import clsx from 'clsx';
 import styles from './LoadMoreBtn.module.css';
-import { useDispatch } from 'react-redux';
 import { setNextPage } from '../../redux/filters/slice';
+import { getCars } from '../../redux/cars/operation';
+import { useAppDispatch } from '../../hooks/redux';
 
 export default function LoadMoreBtn() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleSetNextPage = () => {
     dispatch(setNextPage());
+    dispatch(getCars(null));
   };
 
   return (

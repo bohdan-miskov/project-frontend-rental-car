@@ -1,3 +1,4 @@
+import api from '../../services/axiosConfig';
 import { type CarsResponse } from '../../types/car';
 import {
   selectFiltersBrand,
@@ -21,7 +22,7 @@ export const getCars = wrapAsyncThunk('cars/getAll', async (_, thunkApi) => {
     limit: LIMIT,
   };
 
-  const response = await axios.get<CarsResponse>('/cars', {
+  const response = await api.get<CarsResponse>('/cars', {
     params,
   });
   return response.data;

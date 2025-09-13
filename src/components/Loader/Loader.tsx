@@ -4,7 +4,7 @@ import { PropagateLoader } from 'react-spinners';
 export default function Loader() {
   return (
     <div className={css.loader}>
-      <PropagateLoader aria-label="Loading Spinner" size={15} color="#3d2218" />
+      <PropagateLoader aria-label="Loading Spinner" size={15} color="#3470ff" />
     </div>
   );
 }

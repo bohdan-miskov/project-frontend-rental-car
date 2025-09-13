@@ -4,3 +4,5 @@ export const ERROR_MESSAGES = {
   422: 'Validation error. Please check your input data.',
   500: 'Server error. Please try again later.',
 };
+
+export const PRICE_OPTIONS = ['30', '40', '50', '60', '70', '80'];

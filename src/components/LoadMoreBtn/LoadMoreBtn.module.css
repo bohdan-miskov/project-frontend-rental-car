@@ -1,4 +1,6 @@
 .loadBtn {
+  display: block;
   min-width: 156px;
+  margin: 0 auto;
   margin-top: 80px;
 }

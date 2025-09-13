@@ -22,22 +22,21 @@ const filtersSlice = createSlice({
   reducers: {
     setBrand(state, action) {
       state.brand = action.payload.toString().trim().toLowerCase();
-      state.page = 1;
     },
     setRentalPrice(state, action) {
       state.rentalPrice = action.payload.toString().trim().toLowerCase();
-      state.page = 1;
     },
     setMinMileage(state, action) {
       state.minMileage = action.payload.toString().trim().toLowerCase();
-      state.page = 1;
     },
     setMaxMileage(state, action) {
       state.maxMileage = action.payload.toString().trim().toLowerCase();
-      state.page = 1;
     },
     setNextPage(state) {
       state.page += 1;
+    },
+    resetPage(state) {
+      state.page = 1;
     },
     clearFilters(state) {
       state.brand = null;
@@ -57,5 +56,6 @@ export const {
   setMinMileage,
   setMaxMileage,
   setNextPage,
+  resetPage,
   clearFilters,
 } = filtersSlice.actions;
