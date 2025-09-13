@@ -1,40 +1,31 @@
-import {
-  createAsyncThunk,
-  type AsyncThunk,
-  type AsyncThunkPayloadCreator,
-  type AsyncThunkConfig,
-} from '@reduxjs/toolkit';
+import { createAsyncThunk, type GetThunkAPI } from '@reduxjs/toolkit';
 import type { ErrorResponse } from '../../types/error';
+import type { RootState } from '../store';
 
-type RejectValue = {
-  message: string;
-};
+type Config = { state: RootState; rejectValue: ErrorResponse };
 
-export function wrapAsyncThunk<Returned, Arg = void>(
+type ThunkApi = GetThunkAPI<Config>;
+
+export const wrapAsyncThunk = <Arg, Returned>(
   type: string,
-  asyncFunction: AsyncThunkPayloadCreator<
-    Returned,
-    Arg,
-    AsyncThunkConfig & { rejectValue: RejectValue }
-  >
-): AsyncThunk<Returned, Arg, AsyncThunkConfig & { rejectValue: RejectValue }> {
-  return createAsyncThunk<
-    Returned,
-    Arg,
-    AsyncThunkConfig & { rejectValue: RejectValue }
-  >(type, async (arg, thunkApi) => {
-    try {
-      return await asyncFunction(arg, thunkApi);
-    } catch (err: ErrorResponse) {
-      if (err?.response) {
+  asyncFunction: (arg: Arg, thunkApi: ThunkApi) => Promise<Returned>
+) => {
+  return createAsyncThunk<Returned, Arg, Config>(
+    type,
+    async (arg, thunkApi) => {
+      try {
+        return await asyncFunction(arg, thunkApi);
+      } catch (err: unknown) {
+        const error = err as ErrorResponse;
+        if (error.response) {
+          return thunkApi.rejectWithValue({
+            message: error.response.message || error.message,
+          });
+        }
         return thunkApi.rejectWithValue({
-          message: err.response.message ?? err.message,
+          message: error.message,
         });
       }
-
-      return thunkApi.rejectWithValue({
-        message: err.message,
-      });
     }
-  });
-}
+  );
+};

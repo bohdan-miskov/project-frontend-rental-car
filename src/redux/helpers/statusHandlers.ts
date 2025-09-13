@@ -1,31 +1,44 @@
-import type { CarsResponse } from '../../types/car';
-import type { AppAction, RootState } from '../store';
+import type { Car, CarsResponse } from '../../types/car';
+import type { ErrorResponse, QueryError } from '../../types/error';
+import type { AppAction } from '../store';
 
-export const setPending = (state: RootState) => {
+type CommonState = {
+  isLoading: boolean;
+  error: QueryError | null;
+};
+
+type ListState = {
+  listLoading: boolean;
+  listError: QueryError | null;
+};
+
+type PaginationArrayState<T> = {
+  items: Array<T>;
+  totalPages: number;
+  totalItems: number;
+  page: number;
+};
+
+export const setPending = (state: CommonState) => {
   state.isLoading = true;
   state.error = null;
 };
 
-export const setListPending = (state: RootState) => {
+export const setListPending = (state: ListState) => {
   state.listLoading = true;
   state.listError = null;
 };
 
-export const setOperationPending = (state: RootState) => {
-  state.operationLoading = true;
-  state.operationError = null;
-};
-
-export const setFulfilled = (state: RootState) => {
+export const setFulfilled = (state: CommonState) => {
   state.isLoading = false;
 };
 
-export const setListFulfilled = (state: RootState) => {
+export const setListFulfilled = (state: ListState) => {
   state.listLoading = false;
 };
 
 export const setListData = (
-  state: RootState,
+  state: PaginationArrayState<Car>,
   action: AppAction<CarsResponse>
 ) => {
   state.items = action.payload.cars;
@@ -34,32 +47,26 @@ export const setListData = (
   state.page = action.payload.page;
 };
 
-export const setOperationFulfilled = (state: RootState) => {
-  state.operationLoading = false;
-};
-
-export const setListRejected = (state: RootState, action: AppAction<Error>) => {
-  state.listLoading = false;
-  state.listError = action.payload;
-};
-
-export const setOperationRejected = (
-  state: RootState,
-  action: AppAction<Error>
+export const setListRejected = (
+  state: ListState,
+  action: AppAction<ErrorResponse | undefined>
 ) => {
-  state.operationLoading = false;
-  state.operationError = action.payload;
+  state.listLoading = false;
+  state.listError = action.payload ?? { message: 'Error' };
 };
 
-export const setRejected = (state: RootState, action: AppAction<Error>) => {
+export const setRejected = (
+  state: CommonState,
+  action: AppAction<ErrorResponse | undefined>
+) => {
   state.isLoading = false;
-  state.error = action.payload;
+  state.error = action.payload ?? { message: 'Error' };
 };
 
-export const setPaginationArrayRejected = (state: RootState) => {
+export const setPaginationArrayRejected = (
+  state: PaginationArrayState<Car>
+) => {
   state.items = [];
-  state.hasPreviousPage = false;
-  state.hasNextPage = false;
   state.page = 1;
   state.totalPages = 1;
   state.totalItems = 0;
