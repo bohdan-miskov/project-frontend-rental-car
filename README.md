@@ -1,69 +1,79 @@
-# React + TypeScript + Vite
+# RentalCar Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**RentalCar** is a modern, car rental platform built with React and TypeScript.
+It allows users to browse available cars, view detailed information, and make
+online bookings easily. The frontend communicates with a free backend API,
+providing a seamless and interactive user experience without the need for
+authentication.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Description
 
-## Expanding the ESLint configuration
+This project focuses on delivering a fast and user-friendly car rental
+experience. Users can:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Browse a catalog of available cars with pagination and "Load More"
+  functionality
+- Filter cars by various criteria such as brand, mileage, and price
+- View detailed information for each car, including images and specifications
+- Book cars using a form that validates inputs (name, email, date, and optional
+  comment)
+- Add cars to a list of favorites for easier access later
+- Receive real-time notifications for successful actions or errors
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+It leverages modern frontend technologies and libraries to maintain clean,
+maintainable, and scalable code.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Technologies Used
+
+- **React** with **TypeScript** for building robust UI components
+- **Vite** for fast development and optimized build
+- **Redux Toolkit** for state management
+- **Formik** + **Yup** for form handling and validation
+- **react-datepicker** for user-friendly date selection
+- **react-select** for advanced dropdowns and filter selection
+- **react-hot-toast** for elegant toast notifications
+- **CSS Modules** for modular and maintainable styling
+
+---
+
+## Features
+
+- **Car Catalog:** Browse cars with high-quality images and essential
+  information
+- **Car Details:** View complete details of a selected car including mileage,
+  location, and description
+- **Booking System:** Fill out a validated form to book a car for a specific
+  date
+- **Filtering & Search:** Apply filters to find cars that match user preferences
+- **Favorites:** Mark cars as favorites for easy reference
+- **Notifications:** Real-time success and error messages improve user feedback
+
+---
+
+## Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/project-frontend-rental-car.git
+
+cd project-frontend-rental-car
+
+npm install
+
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The app will run on the URL provided by Vite, typically http://localhost:5173.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Notes
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Public Backend:** The backend API is free, so some data may be limited.
+- **Modular Styling:** Styling and layout are modularized using CSS Modules for
+  easier maintenance.
+- **Future Expansion:** The project can serve as a base for a larger rental
+  platform with authentication and payment integration in the future.
