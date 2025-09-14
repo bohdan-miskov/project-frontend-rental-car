@@ -1,0 +1,21 @@
+.container {
+  margin: 0 auto;
+  margin-top: 32px;
+  padding: 40px 24px;
+  border-radius: 16px;
+  background-color: var(--badges);
+  width: 100%;
+  max-width: 598px;
+}
+.text {
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.btn {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  font-size: 18px;
+}

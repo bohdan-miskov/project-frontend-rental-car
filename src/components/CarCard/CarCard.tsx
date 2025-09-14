@@ -50,22 +50,23 @@ export default function CarCard({
         width={276}
         height={268}
       />
+      <div className={styles.cardContent}>
+        <div className={styles.cardTopContent}>
+          <h3 className={styles.cardTitle}>
+            {brand} <span className={styles.cardTitleAccent}>{model}</span>,{' '}
+            {year}
+          </h3>
 
-      <div className={styles.cardTopContent}>
-        <h3 className={styles.cardTitle}>
-          {brand} <span className={styles.cardTitleAccent}>{model}</span>,{' '}
-          {year}
-        </h3>
-
-        <p className={styles.cardPrice}>{`$${rentalPrice}`}</p>
+          <p className={styles.cardPrice}>{`$${rentalPrice}`}</p>
+        </div>
+        <ul className={styles.cardInfoList}>
+          <li className={styles.cardInfoItem}>{addressArray[1]}</li>
+          <li className={styles.cardInfoItem}>{addressArray[2]}</li>
+          <li className={styles.cardInfoItem}>{rentalCompany}</li>
+          <li className={styles.cardInfoItem}>{type}</li>
+          <li className={styles.cardInfoItem}>{`${mileageDisplay} km`}</li>
+        </ul>
       </div>
-      <ul className={styles.cardInfoList}>
-        <li className={styles.cardInfoItem}>{addressArray[1]}</li>
-        <li className={styles.cardInfoItem}>{addressArray[2]}</li>
-        <li className={styles.cardInfoItem}>{rentalCompany}</li>
-        <li className={styles.cardInfoItem}>{type}</li>
-        <li className={styles.cardInfoItem}>{`${mileageDisplay} km`}</li>
-      </ul>
 
       <Link
         className={clsx(styles.cardDetailsLink, 'blue-btn')}

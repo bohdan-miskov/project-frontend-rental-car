@@ -1,5 +1,5 @@
 .section {
-  padding: 38px 0;
+  padding: 128px 0;
 }
 
 .h1 {
@@ -17,6 +17,11 @@
   align-items: center;
   color: var(--white);
   width: 340px;
+}
+
+.text {
+  font-weight: 400;
+  margin-bottom: 32px;
 }
 
 .wrapper {

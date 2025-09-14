@@ -7,7 +7,7 @@ export default function FullScreenLoader({ text }: Props) {
     <div className={styles.overlay}>
       <div className="container">
         <div className={styles.container}>
-          <ClipLoader color="#3d2218" size={100} />
+          <ClipLoader color="#3470ff" size={100} />
           <p className={styles.text}>{text}</p>
         </div>
       </div>

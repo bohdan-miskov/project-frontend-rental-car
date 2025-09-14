@@ -13,8 +13,12 @@
 }
 .bookForm {
 }
+div[class='react-datepicker-wrapper']:has(.formField) {
+  width: 100%;
+}
 .formField {
   width: 100%;
+  box-sizing: border-box;
   padding: 12px 20px;
 }
 .formField:not(:last-child) {
@@ -26,13 +30,18 @@
 .formField::placeholder {
   color: var(--gray);
 }
+.formTextArea {
+  resize: none;
+  height: 88px;
+}
 .formError {
   color: #c80000;
   position: absolute;
   font-size: 12px;
-  transform: translateX(5%) translateY(10%);
+  transform: translateX(5%) translateY(-15px);
 }
 .formBtn {
+  display: block;
   margin: 0 auto;
   min-width: 156px;
 }

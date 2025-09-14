@@ -24,12 +24,22 @@ export default function ErrorToastMessage({
 }: Props) {
   useEffect(() => {
     if (!children) return;
+    const delay = 300;
+    let timer: ReturnType<typeof setTimeout> | null = null;
 
-    toast.error(String(children), {
-      duration,
-      style: toastStyleOptions,
-      iconTheme: toastIconThemeOptions,
-    });
+    timer = setTimeout(() => {
+      if (children) {
+        toast.error(String(children), {
+          duration,
+          style: toastStyleOptions,
+          iconTheme: toastIconThemeOptions,
+        });
+      }
+    }, delay);
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, [children, duration]);
 
   return null;

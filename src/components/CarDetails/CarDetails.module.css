@@ -8,6 +8,7 @@
 }
 
 .detailsLeftSide {
+  flex-shrink: 0;
 }
 .detailsImage {
   border-radius: 20px;
@@ -15,6 +16,8 @@
 }
 .detailsRightSide {
   padding-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .detailsTitle {
   font-weight: 600;
@@ -47,8 +50,10 @@
   margin-bottom: 68px;
 }
 .detailsList {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
+  gap: 68px;
   justify-content: space-between;
 }
 .detailsItem {

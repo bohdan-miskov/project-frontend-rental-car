@@ -9,3 +9,7 @@
   row-gap: 48px;
   column-gap: 32px;
 }
+
+.carsItem {
+  display: flex;
+}

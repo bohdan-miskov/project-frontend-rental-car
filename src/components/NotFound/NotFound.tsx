@@ -6,9 +6,9 @@ export default function NotFound() {
     <section className={css.section}>
       <div className={`container ${css.wrapper}`}>
         <h1 className={css.h1}>404</h1>
-        <p className={css.h3}>Car not found</p>
-        <Link to="/" type="button" className={`blue-btn ${css.button}`}>
-          Back To Home
+        <p className={css.text}>Car not found</p>
+        <Link to="/catalog" type="button" className={`blue-btn ${css.button}`}>
+          Back To Catalog
         </Link>
       </div>
     </section>

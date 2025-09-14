@@ -49,8 +49,8 @@
 .formRangeContainer > div:nth-child(2) .formRangeInput {
   border-radius: 0 12px 12px 0;
   padding-left: 51px;
+  border-left: 1px solid transparent;
 }
-
 .fromBtn {
   width: 156px;
   align-self: flex-end;

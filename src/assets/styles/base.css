@@ -50,9 +50,17 @@ main {
 input,
 textarea,
 select {
+  border: 1px solid transparent;
   border-radius: 12px;
   padding: 12px;
   background-color: var(--inputs);
+  transition: 300ms ease-in;
+  transition-property: border, box-shadow;
+}
+
+:is(input, textarea):focus {
+  border: 1px solid var(--button-hover);
+  box-shadow: 0 0 0 4px rgba(78, 70, 180, 0.2);
 }
 
 input {
