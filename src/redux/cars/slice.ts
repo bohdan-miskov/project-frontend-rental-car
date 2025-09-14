@@ -1,12 +1,15 @@
 import type { Car } from '../../types/car';
 import type { QueryError } from '../../types/error';
 import { createSlice } from '@reduxjs/toolkit';
-import { getCars } from './operation';
+import { bookCar, getCars } from './operation';
 import {
   setListData,
   setListFulfilled,
   setListPending,
   setListRejected,
+  setOperationFulfilled,
+  setOperationPending,
+  setOperationRejected,
   setPaginationArrayRejected,
 } from '../helpers/statusHandlers';
 
@@ -18,6 +21,8 @@ type InitialState = {
   page: number;
   listLoading: boolean;
   listError: QueryError | null;
+  operationLoading: boolean;
+  operationError: QueryError | null;
 };
 
 const initialState: InitialState = {
@@ -28,6 +33,8 @@ const initialState: InitialState = {
   page: 1,
   listLoading: false,
   listError: null,
+  operationLoading: false,
+  operationError: null,
 };
 
 const carsSlice = createSlice({
@@ -57,6 +64,15 @@ const carsSlice = createSlice({
       .addCase(getCars.rejected, (state, action) => {
         setListRejected(state, action);
         setPaginationArrayRejected(state);
+      })
+      .addCase(bookCar.pending, state => {
+        setOperationPending(state);
+      })
+      .addCase(bookCar.fulfilled, state => {
+        setOperationFulfilled(state);
+      })
+      .addCase(bookCar.rejected, (state, action) => {
+        setOperationRejected(state, action);
       });
   },
 });

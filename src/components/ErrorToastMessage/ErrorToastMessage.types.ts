@@ -1,4 +1,4 @@
 export type Props = {
   children: string;
-  duration: number;
+  duration?: number;
 };

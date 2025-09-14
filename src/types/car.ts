@@ -26,3 +26,10 @@ export type CarDetails = Car & {
   functionalities: string[];
   rentalConditions: string[];
 };
+
+export type BookCar = {
+  name: string;
+  email: string;
+  bookingDate: Date;
+  comment?: string;
+};

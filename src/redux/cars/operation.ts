@@ -1,5 +1,5 @@
 import api from '../../services/axiosConfig';
-import { type CarsResponse } from '../../types/car';
+import { type BookCar, type CarsResponse } from '../../types/car';
 import {
   selectFiltersBrand,
   selectFiltersMaxMileage,
@@ -27,3 +27,11 @@ export const getCars = wrapAsyncThunk('cars/getAll', async (_, thunkApi) => {
   });
   return response.data;
 });
+
+export const bookCar = wrapAsyncThunk(
+  'cars/book',
+  async ({ payload, id }: { payload: BookCar; id: string }) => {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return { payload, id };
+  }
+);

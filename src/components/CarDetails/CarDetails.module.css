@@ -1,30 +1,74 @@
 .detailsSection {
+  padding-top: 84px;
+  padding-bottom: 104px;
 }
 .detailsContainer {
+  display: flex;
+  gap: 72px;
 }
+
 .detailsLeftSide {
 }
 .detailsImage {
+  border-radius: 20px;
+  margin-bottom: 40px;
 }
 .detailsRightSide {
+  padding-top: 20px;
 }
 .detailsTitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--main);
+  margin-bottom: 8px;
 }
 .detailsMainInfoList {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 .detailsMainInfoItem {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.detailsMainInfoItem > svg {
+  fill: var(--main);
 }
 .detailsPrice {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--button);
+  margin-bottom: 32px;
 }
 .detailsDescription {
+  margin-bottom: 68px;
 }
 .detailsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .detailsItem {
 }
 .detailsSubTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
 .detailsSubList {
 }
 .detailsSubItem {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.detailsSubItem:not(:last-child) {
+  margin-bottom: 16px;
+}
+.detailsSubItem > svg {
+  fill: var(--main);
 }

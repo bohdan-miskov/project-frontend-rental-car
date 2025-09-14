@@ -12,6 +12,11 @@ type ListState = {
   listError: QueryError | null;
 };
 
+type OperationState = {
+  operationLoading: boolean;
+  operationError: QueryError | null;
+};
+
 type PaginationArrayState<T> = {
   items: Array<T>;
   totalPages: number;
@@ -29,12 +34,21 @@ export const setListPending = (state: ListState) => {
   state.listError = null;
 };
 
+export const setOperationPending = (state: OperationState) => {
+  state.operationLoading = true;
+  state.operationError = null;
+};
+
 export const setFulfilled = (state: CommonState) => {
   state.isLoading = false;
 };
 
 export const setListFulfilled = (state: ListState) => {
   state.listLoading = false;
+};
+
+export const setOperationFulfilled = (state: OperationState) => {
+  state.operationLoading = false;
 };
 
 export const setListData = (
@@ -58,6 +72,14 @@ export const setListRejected = (
 ) => {
   state.listLoading = false;
   state.listError = action.payload ?? { message: 'Error' };
+};
+
+export const setOperationRejected = (
+  state: OperationState,
+  action: AppAction<ErrorResponse | undefined>
+) => {
+  state.operationLoading = false;
+  state.operationError = action.payload ?? { message: 'Error' };
 };
 
 export const setRejected = (
